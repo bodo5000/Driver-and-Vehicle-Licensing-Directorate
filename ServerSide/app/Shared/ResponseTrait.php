@@ -4,7 +4,7 @@ namespace App\Shared;
 
 trait ResponseTrait
 {
-    public function apiResponse(object $collection = null, string $message = null, int $status = null)
+    public function apiResponse(object|array $collection = null, string $message = null, int $status = null)
     {
         $array = [
             'message' => $message,

@@ -3,7 +3,7 @@ use App\Http\Controllers\V1\PersonController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::controller(PersonController::class)->prefix('people')->group(function () {
+Route::controller(PersonController::class)->prefix('people')->middleware('jwt-auth')->group(function () {
     Route::get('', 'index');
     Route::post('', 'store');
     Route::get('{id}', 'show');
