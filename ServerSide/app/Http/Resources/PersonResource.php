@@ -26,7 +26,7 @@ class PersonResource extends JsonResource
             'Email' => $this->email,
             'Phone' => $this->phone,
             'Address' => $this->address,
-            'PersonalImage' => $this->image
+            'PersonalImage' => $this->image ? asset("storage/{$this->image}") : null
         ];
     }
 }

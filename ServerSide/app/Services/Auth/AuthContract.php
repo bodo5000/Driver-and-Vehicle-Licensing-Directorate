@@ -8,6 +8,5 @@ interface AuthContract
 {
     public function login(AuthRequest $request);
     public function createNewToken($token);
-
     public function logout();
 }

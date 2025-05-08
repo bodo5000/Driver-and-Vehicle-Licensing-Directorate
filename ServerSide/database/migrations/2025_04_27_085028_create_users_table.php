@@ -13,7 +13,7 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Person::class)->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignIdFor(Person::class)->unique()->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->string('username')->unique();
             $table->string('password');
             $table->boolean('isActive')->default(1);
