@@ -42,7 +42,7 @@ class UserController extends Controller
 
         } catch (ModelAlreadyExistsException $e) {
             return $this->apiResponse(['error' => $e->getMessage()], 'fail', 400);
-
+            
         } catch (ModelNotFoundException $e) {
             return $this->apiResponse(['error' => $e->getMessage()], 'NotFound...', 404);
         }
