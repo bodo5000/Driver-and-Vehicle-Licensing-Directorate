@@ -7,4 +7,5 @@ Route::prefix('v1/')->group(function () {
     require_once 'people.php';
     require_once 'user.php';
     require_once 'application_type.php';
+    require_once 'test_type.php';
 });
