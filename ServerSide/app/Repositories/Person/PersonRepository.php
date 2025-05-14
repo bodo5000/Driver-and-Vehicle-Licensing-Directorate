@@ -52,7 +52,7 @@ class PersonRepository implements PersonInterface
 
         $this->filterByNationalNo($request, $query);
         $this->filterByGender($request, $query);
-
+        $this->filterByID($request, $query);
         return $query->latest()->paginate(10);
     }
 }
