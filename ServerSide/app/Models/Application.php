@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Application extends Model
 {
+    protected $guarded = ['_token', '_method'];
+
     public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);
@@ -14,7 +16,7 @@ class Application extends Model
 
     public function applicationType(): BelongsTo
     {
-        return $this->belongsTo(Application::class);
+        return $this->belongsTo(ApplicationType::class);
     }
 
     public function user(): BelongsTo

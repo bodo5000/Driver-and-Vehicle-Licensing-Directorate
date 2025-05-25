@@ -26,4 +26,9 @@ class ApplicationTypeService implements ApplicationTypeContract
         $updated = $this->applicationTypeRepository->update($feesAttribute, $applicationType);
         return $updated ? $applicationType : null;
     }
+
+    public function findById(string $id)
+    {
+        return $this->applicationTypeRepository->find($id);
+    }
 }

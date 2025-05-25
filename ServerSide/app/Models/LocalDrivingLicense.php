@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LocalDrivingLicense extends Model
 {
+
+    protected $guarded = ['_method', '_token'];
+
     public function applications(): HasMany
     {
         return $this->hasMany(Application::class);

@@ -8,7 +8,7 @@ use App\Services\Person\PersonContract;
 use App\Services\Person\PersonService;
 use Illuminate\Support\ServiceProvider;
 
-class PersonProvider extends ServiceProvider
+class PersonServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
