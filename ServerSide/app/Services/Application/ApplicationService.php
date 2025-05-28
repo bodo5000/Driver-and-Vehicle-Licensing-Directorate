@@ -51,7 +51,7 @@ class ApplicationService implements ApplicationContract
             throw new ModelNotFoundException("person with ID {$attributes['person_id']} not found");
         }
 
-        if ($this->applicationRepository->isUserApplicationExists($attributes['application_type_id'], $person)) {
+        if ($this->applicationRepository->isUserApplicationExists($attributes['application_type_id'], $person) && $applicationTypeID == null) {
             return ['error' => 'application already exists and not Canceled or Completed'];
         }
 

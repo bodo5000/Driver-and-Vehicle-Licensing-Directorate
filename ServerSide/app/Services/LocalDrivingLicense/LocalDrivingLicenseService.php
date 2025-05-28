@@ -3,6 +3,7 @@
 namespace App\Services\LocalDrivingLicense;
 
 use App\Models\LicenseClass;
+use App\Models\LocalDrivingLicense;
 use App\Repositories\LocalDrivingLicense\LocalDrivingLicenseInterface;
 use App\Services\Application\ApplicationContract;
 use Illuminate\Http\Request;
@@ -31,20 +32,22 @@ class LocalDrivingLicenseService implements LocalDrivingLicenseContract
 
             if (!$licenseClass) {
                 DB::rollBack();
-
                 return ['fail' => "License Class with ID: {$attributes['license_class_id']} not found"];
+            }
+
+            if ($this->localDrivingLicenseRepository->checkExistingLicense($application->person_id, $attributes['license_class_id'])) {
+                DB::rollBack();
+                return ['fail' => "Person already has this license class application"];
             }
 
             $person_age = \Carbon\Carbon::parse($application->person->date_of_birth)->age;
 
             if ($person_age < $licenseClass->min_allowed_age) {
                 DB::rollBack();
-
                 return ['fail' => "your age is not allowed for this type of applications"];
             }
 
             $attributes['application_id'] = $application->id;
-
             $localDrivingLicense = $this->localDrivingLicenseRepository->create($attributes);
             DB::commit();
 
