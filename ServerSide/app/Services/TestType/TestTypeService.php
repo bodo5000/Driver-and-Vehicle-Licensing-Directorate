@@ -27,4 +27,8 @@ class TestTypeService implements TestTypeContract
         return $updated ? $testType : null;
     }
 
+    public function findById(string $id)
+    {
+        return $this->testTypeRepository->find($id);
+    }
 }

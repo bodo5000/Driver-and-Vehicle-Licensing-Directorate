@@ -22,4 +22,9 @@ class LocalDrivingLicense extends Model
         return $this->belongsTo(LicenseClass::class);
     }
 
+    public function drivingTestAppointments(): HasMany
+    {
+        return $this->hasMany(DrivingTestAppointment::class);
+    }
+
 }

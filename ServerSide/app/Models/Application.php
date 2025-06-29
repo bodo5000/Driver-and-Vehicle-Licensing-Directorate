@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Application extends Model
 {
@@ -27,5 +28,10 @@ class Application extends Model
     public function localDrivingLicense()
     {
         return $this->belongsTo(LocalDrivingLicense::class);
+    }
+
+    public function drivingTestAppointments(): HasOne
+    {
+        return $this->hasOne(DrivingTestAppointment::class);
     }
 }

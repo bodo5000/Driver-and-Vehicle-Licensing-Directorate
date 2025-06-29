@@ -8,4 +8,5 @@ interface LocalDrivingLicenseContract
 {
     public function all();
     public function store(Request $request);
+    public function findById(string $id);
 }

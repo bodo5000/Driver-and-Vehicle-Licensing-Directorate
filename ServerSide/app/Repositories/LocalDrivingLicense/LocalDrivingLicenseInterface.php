@@ -8,5 +8,5 @@ interface LocalDrivingLicenseInterface
     public function getAll();
     public function create(array $attributes);
     public function checkExistingLicense(int $personID, int $licenseClassID, string $status = 'canceled');
-
+    public function findById(string $id);
 }

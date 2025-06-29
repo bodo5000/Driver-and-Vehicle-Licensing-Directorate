@@ -5,6 +5,8 @@ return [
     App\Providers\ApplicationServiceProvider::class,
     App\Providers\ApplicationTypeServiceProvider::class,
     App\Providers\AuthServiceProvider::class,
+    App\Providers\DrivingTestAppointmentServiceProvider::class,
+    App\Providers\DrivingTestServiceProvider::class,
     App\Providers\LocalDrivingLicenseServiceProvider::class,
     App\Providers\PersonServiceProvider::class,
     App\Providers\TestTypeServiceProvider::class,

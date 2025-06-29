@@ -70,4 +70,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Application::class);
     }
+
+    public function drivingTestAppointments(): HasMany
+    {
+        return $this->hasMany(DrivingTestAppointment::class);
+    }
+
+    public function drivingTest(): HasMany
+    {
+        return $this->hasMany(DrivingTest::class);
+    }
 }

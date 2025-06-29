@@ -59,4 +59,8 @@ class LocalDrivingLicenseService implements LocalDrivingLicenseContract
         }
     }
 
+    public function findById(string $id)
+    {
+        return $this->localDrivingLicenseRepository->findById($id);
+    }
 }
